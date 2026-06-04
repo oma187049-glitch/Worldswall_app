@@ -1,6 +1,6 @@
-# [Project name]
+# WorldWalls
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A 4K wallpaper mobile app where users browse stunning photography from around the world, save wallpapers to their device, and set them as their background.
 
 ## Run & Operate
 
@@ -14,6 +14,7 @@ _Replace the heading above with the project's name, and this line with one sente
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
+- Mobile: Expo (React Native) — `artifacts/worldwalls/`
 - API: Express 5
 - DB: PostgreSQL + Drizzle ORM
 - Validation: Zod (`zod/v4`), `drizzle-zod`
@@ -22,15 +23,28 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/worldwalls/` — Expo mobile app (WorldWalls)
+- `artifacts/worldwalls/data/wallpapers.ts` — curated wallpaper catalog (Picsum-based)
+- `artifacts/worldwalls/contexts/FavoritesContext.tsx` — favorites state with AsyncStorage
+- `artifacts/worldwalls/contexts/AutoWallpaperContext.tsx` — auto-rotation settings
+- `artifacts/worldwalls/constants/colors.ts` — dark theme design tokens
+- `lib/api-spec/openapi.yaml` — OpenAPI spec (source of truth for API contracts)
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Frontend-only Expo app using AsyncStorage for all local persistence (no backend needed for MVP)
+- Wallpapers sourced from Picsum Photos (free, no API key needed) — curated 24 wallpapers across 6 world regions
+- Dark theme (`userInterfaceStyle: "dark"`) — appropriate for a wallpaper browser
+- "Set Wallpaper" uses expo-sharing so users can set via system share sheet; iOS must go through Photos
+- Auto-wallpaper rotation is app-level (tracks state in AsyncStorage; no true background scheduling possible in Expo Go)
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Browse 24 curated 4K wallpapers from 6 world regions: Asia, Europe, Americas, Africa, Oceania, Arctic
+- Filter by region with animated chip selector
+- Full-screen wallpaper detail with Download, Set Wallpaper, and Favorite actions
+- Favorites collection saved locally
+- Auto-wallpaper rotation settings with daily/weekly/monthly intervals
 
 ## User preferences
 
@@ -38,7 +52,8 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- expo-file-system, expo-media-library, expo-sharing must match Expo SDK 54 versions (~19.0.x, ~18.2.x, ~14.0.x)
+- iOS cannot programmatically set wallpapers — users must go through Photos app via share sheet
 
 ## Pointers
 

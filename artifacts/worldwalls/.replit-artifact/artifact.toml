@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/"
+title = "WorldWalls"
+version = "1.0.0"
+id = "artifacts/worldwalls"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+name = "expo"
+paths = [ "/" ]
+localPort = 24381
+
+[services.development]
+run = "pnpm --filter @workspace/worldwalls run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/worldwalls", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/worldwalls", "run", "serve" ]
+
+[services.env]
+PORT = "24381"
+BASE_PATH = "/"

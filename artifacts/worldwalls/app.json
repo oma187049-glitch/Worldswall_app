@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "WorldWalls",
+    "slug": "worldwalls",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "worldwalls",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#080810"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "WorldWalls needs access to save wallpapers to your Photos library.",
+        "NSPhotoLibraryAddUsageDescription": "WorldWalls needs access to save wallpapers to your Photos library."
+      }
+    },
+    "android": {
+      "permissions": ["READ_MEDIA_IMAGES", "WRITE_EXTERNAL_STORAGE"]
+    },
+    "web": {
+      "favicon": "./assets/images/icon.png"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://replit.com/"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser",
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow WorldWalls to save wallpapers to your Photos.",
+          "savePhotosPermission": "Allow WorldWalls to save wallpapers to your Photos.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
