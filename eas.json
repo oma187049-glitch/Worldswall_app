@@ -7,7 +7,8 @@
       "developmentClient": true,
       "distribution": "internal",
       "env": {
-        "npm_config_frozen_lockfile": "false"
+        "npm_config_frozen_lockfile": "false",
+        "NPM_CONFIG_FROZEN_LOCKFILE": "false"
       }
     },
     "preview": {
@@ -16,7 +17,8 @@
       },
       "distribution": "internal",
       "env": {
-        "npm_config_frozen_lockfile": "false"
+        "npm_config_frozen_lockfile": "false",
+        "NPM_CONFIG_FROZEN_LOCKFILE": "false"
       }
     },
     "production": {
@@ -24,7 +26,8 @@
         "buildType": "app-bundle"
       },
       "env": {
-        "npm_config_frozen_lockfile": "false"
+        "npm_config_frozen_lockfile": "false",
+        "NPM_CONFIG_FROZEN_LOCKFILE": "false"
       }
     }
   },
